@@ -1,0 +1,89 @@
+/* A little reset  */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: black;
+}
+
+/* Styling the global body */
+body {
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  height: 100vh;
+}
+
+/* Score zone design */
+
+.score__header {
+  margin: 50px auto 0px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  width: 90%;
+  outline: solid 3px rgba(255, 255, 255, 0.171);
+  border-radius: 25px;
+}
+.score__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 25px;
+}
+
+.game__score {
+  background-color: white;
+  width: 120px;
+  height: 100px;
+  text-align: center;
+  border-radius: 10px;
+  display: block;
+}
+
+.scores {
+  display: block;
+  margin: 15px auto;
+}
+
+.text__score {
+  color: hsl(229, 64%, 46%);
+  text-transform: uppercase;
+  letter-spacing: 2.1px;
+}
+
+.number__score {
+  font-size: 45px;
+  font-weight: 700;
+  color: hsl(229, 25%, 31%);
+  letter-spacing: 4px;
+}
+
+/* Responsive  */
+
+@media screen and (max-width: 620px) {
+  .score__header {
+    border-radius: 10px;
+  }
+  .score__container {
+    padding: 15px 18px;
+  }
+  .game__score {
+    width: 100px;
+    border-radius: 5px;
+  }
+  .game__icon {
+    width: 120px;
+  }
+}
