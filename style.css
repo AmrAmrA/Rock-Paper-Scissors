@@ -21,12 +21,15 @@ a {
 body {
   background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Score zone design */
 
 .score__header {
-  margin: 50px auto 0px auto;
+  margin: 50px auto 100px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,6 +73,111 @@ body {
   letter-spacing: 4px;
 }
 
+/* Main */
+main {
+  background-image: url(images/bg-triangle.svg);
+  width: 500px;
+  height: 444px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -2;
+}
+/* Rock Paper Scissors icons and position */
+.all__choices {
+  display: flex;
+  flex-direction: column;
+}
+
+.paper__scissors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -40px 0px 200px 0;
+}
+
+.choice {
+  background-color: white;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.rock__choice {
+  margin: 0 auto;
+}
+
+.paper__choice,
+.scissors__choice,
+.rock__choice {
+  position: relative;
+  cursor: pointer;
+}
+
+.paper__icon,
+.scissors__icon,
+.rock__icon {
+  width: 35%;
+  cursor: pointer;
+}
+/* The borders colors around the icons */
+.paper__choice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -20px;
+  border-radius: 50%;
+  border: 22px solid transparent;
+  background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.scissors__choice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -20px;
+  border-radius: 50%;
+  border: 22px solid transparent;
+  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.rock__choice::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -20px;
+  border-radius: 50%;
+  border: 22px solid transparent;
+  background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+footer {
+  margin: 300px auto 80px auto;
+}
 /* Responsive  */
 
 @media screen and (max-width: 620px) {
@@ -85,5 +193,22 @@ body {
   }
   .game__icon {
     width: 120px;
+  }
+
+  main {
+    width: 250px;
+    height: 150px;
+  }
+  .choice {
+    width: 90px;
+    height: 90px;
+  }
+  .paper__choice::before,
+  .scissors__choice::before,
+  .rock__choice::before {
+    margin: -10px;
+  }
+  .paper__scissors {
+    margin: -40px 0px 80px 0;
   }
 }
