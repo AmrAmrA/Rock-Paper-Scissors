@@ -23,10 +23,11 @@ crossClose.addEventListener("click", () => {
 
 
 // Game rules in mobile device
+let rulesZoneMobile = document.querySelector('.ruleszone__mobile')
 let rulesMobile = document.querySelector('.mobiles__rules')
 let mobileCross = document.querySelector('.mobile__cross')
 
-rulesButton.addEventListener('click', () => {
+rulesZoneMobile.addEventListener('click', () => {
   rulesMobile.classList.add('mobiles__visible')
 })
 

@@ -161,6 +161,10 @@ main {
   outline: solid 3.8px rgb(255, 255, 255);
 }
 
+.ruleszone__mobile {
+  display: none;
+}
+
 .modal__block {
   position: fixed;
   top: 0;
@@ -204,6 +208,9 @@ main {
     font-size: 24px;
     color: hsl(229, 25%, 31%);
 }
+.mobiles__rules {
+  display: none;
+}
 
 .close__explanation {
     cursor: pointer;
@@ -212,15 +219,10 @@ main {
 .toggle__modal {
     display: block;
 }
+
 .rulesText__mobile, 
 .crossClose__mobile {
     display: none;
-}
-.mobiles__rules {
-    display: none;
-}
-.mobiles__visible {
-    display: block;
 }
 
 footer {
@@ -267,8 +269,27 @@ footer {
   }
 }
 @media screen and (max-width: 440px) {
+  .mobiles__visible {
+    display: block;
+  }
     .rules__explanation {
         display: none;
+    }
+    .modal__block {
+      display: none;
+    }
+
+    .ruleszone__mobile {
+      display: block;
+      display: flex;
+      justify-content: flex-end;
+      margin: 180px 25px 0px 0px;
+      cursor: pointer;
+
+    }
+
+    .rules__zone {
+      display: none;
     }
     .mobiles__rules {
         position: absolute;
@@ -282,6 +303,21 @@ footer {
         background-color: white;
         margin-top: 100px;
       }
+      .rulesborder__mobile { 
+        outline: solid 3px rgba(255, 255, 255, 0.616);
+        width: 130px;
+        height: 35px;
+        padding: 7px;
+        border-radius: 7px;
+      }
+      .rulestext__mobile { 
+        color: white;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2.2px;
+        font-weight: 900;
+      }
+
       .mobile__title {
         text-align: center;
         letter-spacing: 2.5px;
