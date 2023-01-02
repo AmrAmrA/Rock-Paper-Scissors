@@ -20,10 +20,7 @@ a {
 /* Styling the global body */
 body {
   background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  overflow-x: hidden;
 }
 
 /* Score zone design */
@@ -76,11 +73,13 @@ body {
 /* Main */
 main {
   background-image: url(images/bg-triangle.svg);
-  width: 500px;
-  height: 444px;
+  width: 350px;
+  height: 250px;
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -2;
+  display: block;
+  margin: 0 auto;
 }
 /* Rock Paper Scissors icons and position */
 .all__choices {
@@ -92,7 +91,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: -40px 0px 200px 0;
+  margin: -40px 0px 100px 0;
 }
 
 .choice {
@@ -124,55 +123,104 @@ main {
   cursor: pointer;
 }
 /* The borders colors around the icons */
-.paper__choice::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  margin: -20px;
-  border-radius: 50%;
-  border: 22px solid transparent;
-  background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%)) border-box;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask-composite: destination-out;
-  mask-composite: exclude;
+.paper__choice {
+  border: 22px solid hsl(230, 89%, 62%);
+}
+.scissors__choice {
+  border: 22px solid hsl(39, 89%, 49%);
 }
 
-.scissors__choice::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  margin: -20px;
-  border-radius: 50%;
-  border: 22px solid transparent;
-  background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask-composite: destination-out;
-  mask-composite: exclude;
+.rock__choice {
+  border: 22px solid hsl(349, 71%, 52%);
 }
 
-.rock__choice::before {
-  content: "";
-  position: absolute;
+/* Rules zone */
+.rules__zone {
+  display: flex;
+  justify-content: flex-end;
+  margin: 180px 25px 0px 0px;
+  cursor: pointer;
+}
+
+.rules__border {
+  outline: solid 3px rgba(255, 255, 255, 0.616);
+  width: 130px;
+  height: 35px;
+  padding: 7px;
+  border-radius: 7px;
+}
+.rules__text {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  font-weight: 900;
+}
+
+.rules__zone:hover .rules__border {
+  outline: solid 3.8px rgb(255, 255, 255);
+}
+
+.modal__block {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
-  margin: -20px;
-  border-radius: 50%;
-  border: 22px solid transparent;
-  background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask-composite: destination-out;
-  mask-composite: exclude;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 3;
+  display: none;
+}
+.rules__explanation {
+  position: absolute;
+  top: 400px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 400px;
+  z-index: 4;
+  background-color: white;
+  padding: 30px 0px;
+  display: none;
+}
+
+.header__rules {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 35px 45px 35px;
+}
+
+.rules__image {
+  display: block;
+  margin: auto;
+}
+
+.modal__rules {
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 24px;
+    color: hsl(229, 25%, 31%);
+}
+
+.close__explanation {
+    cursor: pointer;
+}
+
+.toggle__modal {
+    display: block;
+}
+.rulesText__mobile, 
+.crossClose__mobile {
+    display: none;
+}
+.mobiles__rules {
+    display: none;
+}
+.mobiles__visible {
+    display: block;
 }
 
 footer {
@@ -196,19 +244,71 @@ footer {
   }
 
   main {
-    width: 250px;
-    height: 150px;
+    width: 270px;
+    height: 170px;
   }
   .choice {
-    width: 90px;
-    height: 90px;
+    width: 120px;
+    height: 120px;
   }
-  .paper__choice::before,
-  .scissors__choice::before,
-  .rock__choice::before {
-    margin: -10px;
+  .paper__choice {
+    border: 13px solid hsl(230, 89%, 62%);
   }
+  .scissors__choice {
+    border: 13px solid hsl(39, 89%, 49%);
+  }
+
+  .rock__choice {
+    border: 13px solid hsl(349, 71%, 52%);
+  }
+
   .paper__scissors {
-    margin: -40px 0px 80px 0;
+    margin: -40px 0px 70px 0;
   }
 }
+@media screen and (max-width: 440px) {
+    .rules__explanation {
+        display: none;
+    }
+    .mobiles__rules {
+        position: absolute;
+        top: 300px;
+        left: 50%;
+        right: 0%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 850px; 
+        z-index: 4;
+        background-color: white;
+        margin-top: 100px;
+      }
+      .mobile__title {
+        text-align: center;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 26px;
+        color: hsl(229, 25%, 31%);
+        margin-bottom: 95px;
+        margin-top: 25px;
+      }
+      .mobile__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 85px auto;
+      }
+      .mobile__image {
+        width: 80%;
+        display: block;
+        margin: auto;
+        margin-bottom: 95px;
+      }
+      .mobile__cross {
+        width: 25px; 
+        height: 25px;
+        display: block;
+        margin: 45px auto 0px;
+      }
+
+}  

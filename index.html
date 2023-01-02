@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="FR">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
       type="image/png"
@@ -20,70 +20,99 @@
     <link rel="stylesheet" href="style.css" />
     <title>Frontend Mentor | Rock, Paper, Scissors</title>
   </head>
-
   <body>
-    <div class="score__header">
-      <div class="score__container">
-        <img
-          src="images/logo.svg"
-          alt="Rock Paper Scissors"
-          class="game__icon"
-        />
-        <div class="game__score">
-          <div class="scores">
-            <p class="text__score">Score</p>
-            <p class="number__score">12</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <main>
-      <div class="all__choices">
-        <div class="paper__scissors">
-          <div class="paper__choice choice">
-            <img
-              src="images/icon-paper.svg"
-              alt="paper choice"
-              class="paper__icon"
-            />
-          </div>
-          <div class="scissors__choice choice">
-            <img
-              src="images/icon-scissors.svg"
-              alt="scissors choice"
-              class="scissors__icon"
-            />
-          </div>
-        </div>
-        <div class="rock__choice choice">
+    <div class="global__container">
+      <div class="score__header">
+        <div class="score__container">
           <img
-            src="images/icon-rock.svg"
-            alt="rock choice"
-            class="rock__icon"
+            src="images/logo.svg"
+            alt="Rock Paper Scissors"
+            class="game__icon"
           />
+          <div class="game__score">
+            <div class="scores">
+              <p class="text__score">Score</p>
+              <p class="number__score">12</p>
+            </div>
+          </div>
         </div>
       </div>
-    </main>
+  
+      <main>
+        <div class="all__choices">
+          <div class="paper__scissors">
+            <div class="paper__choice choice">
+              <img
+                src="images/icon-paper.svg"
+                alt="paper choice"
+                class="paper__icon"
+              />
+            </div>
+            <div class="scissors__choice choice">
+              <img
+                src="images/icon-scissors.svg"
+                alt="scissors choice"
+                class="scissors__icon"
+              />
+            </div>
+          </div>
+          <div class="rock__choice choice">
+            <img
+              src="images/icon-rock.svg"
+              alt="rock choice"
+              class="rock__icon"
+            />
+          </div>
+        </div>
+      </main> -->
+        <div class="rules__zone">
+          <div class="rules__border">
+            <p class="rules__text">Rules</p>
+          </div>
+        </div>
+        <div class="modal__block">
 
-    <!-- Rules
+        </div>
 
-  You Picked
-  The House Picked
+        <div class="rules__explanation">
+          <div class="header__rules">
+            <p class="modal__rules">RULES</p>
+            <img src="images/icon-close.svg" alt="a cross to close the modal block" class="close__explanation">
+          </div>
+          <img src="images/image-rules.svg" alt="rules of the game" class="rules__image">
+        </div>
 
-  You Win
-  You Lose
+        <div class="mobiles__rules">
+          <div class="mobile__container">
+            <p class="mobile__title">RULES</p>
+            <img src="images/image-rules.svg" alt="rules of the game" class="mobile__image">
+            <img src="images/icon-close.svg" alt="a cross to close the modal block" class="mobile__cross">
+          </div>
+        </div>
 
-  Play Again -->
 
-    <footer>
-      <p>
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >.
-      </p>
-      <p>Coded by <a href="#">Your Name Here</a>.</p>
-    </footer>
+
+
+       <!-- Rules
+  
+    You Picked
+    The House Picked
+  
+    You Win
+    You Lose
+  
+    Play Again  -->
+  
+      <!-- <footer>
+        <p>
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >.
+        </p>
+        <p>Coded by <a href="#">Your Name Here</a>.</p>
+      </footer> -->
+    </div>
   </body>
+  <script src="app.js"></script>
 </html>
