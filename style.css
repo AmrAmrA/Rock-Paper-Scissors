@@ -80,7 +80,9 @@ main {
   z-index: -2;
   display: block;
   margin: 0 auto;
-
+  background-image: none;
+  max-width: 800px;
+  width: 90%; 
 }
 
 .main__game {
@@ -155,6 +157,8 @@ main {
 .start__game {
 
   display: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .show__theGame {
@@ -168,11 +172,12 @@ main {
 .players__text {
   display: flex;
   justify-content: space-between;
+  margin: 0 2.5%;
 }
 .player__photos {
   display: flex;
   justify-content: space-between;
-  margin: 0 7%;
+  margin: 0 -2%;
 }
 
 
@@ -204,6 +209,41 @@ main {
 .player__photos img {
   border-radius: 50%;
 }
+
+.result__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: -20px 30px 0px 30px;
+}
+
+.final__result {
+  margin-bottom: 20px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 35px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.result__button {
+  outline: none;
+  border: none;
+  padding: 12px 8px;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  width: 160px;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  cursor: pointer;
+}
+
+.result__button:hover {
+  color: hsl(349, 71%, 52%);
+}
+
+
+
 
 /* Rules zone */
 .rules__zone {

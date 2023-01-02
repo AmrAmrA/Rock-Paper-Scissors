@@ -49,16 +49,14 @@ function startTheGame(e) {
   firstPlayerPhoto.src = e.target.src;
   firstPlayerChoice.classList.add(e.target.className + "__choice");
 }
+
+
+
+
 let hasard = Math.floor(Math.random() * ourChoice.length)
 let computerPhoto = document.querySelector('.computerPlayer__photo')
 let computerChoice = document.querySelector('.computerPlayer__choice')
-console.log(computerPhoto);
-console.log(ourChoice[hasard].className);
-
 setTimeout(ComputerTurn, 3000)
-
-
-
 function ComputerTurn() {
   computerPhoto.src = ourChoice[hasard].src
   computerChoice.classList.add(ourChoice[hasard].className + '__choice')
