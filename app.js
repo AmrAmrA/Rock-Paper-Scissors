@@ -14,39 +14,52 @@ crossClose.addEventListener("click", () => {
   rules.classList.remove("toggle__modal");
 });
 
-
 // Game rules in mobile device
-let rulesZoneMobile = document.querySelector('.ruleszone__mobile')
-let rulesMobile = document.querySelector('.mobiles__rules')
-let mobileCross = document.querySelector('.mobile__cross')
+let rulesZoneMobile = document.querySelector(".ruleszone__mobile");
+let rulesMobile = document.querySelector(".mobiles__rules");
+let mobileCross = document.querySelector(".mobile__cross");
 
-rulesZoneMobile.addEventListener('click', () => {
-  rulesMobile.classList.add('mobiles__visible')
-})
+rulesZoneMobile.addEventListener("click", () => {
+  rulesMobile.classList.add("mobiles__visible");
+});
 
-mobileCross.addEventListener('click', () => {
-  rulesMobile.classList.remove('mobiles__visible')
-   modal.classList.remove("toggle__modal");
-})
+mobileCross.addEventListener("click", () => {
+  rulesMobile.classList.remove("mobiles__visible");
+  modal.classList.remove("toggle__modal");
+});
 
+// Start the game
+let ourChoice = document.querySelectorAll(".all__choices img");
+let allChoices = document.querySelector(".all__choices");
+let main = document.querySelector("main");
+let gameZone = document.querySelector(".start__game");
 
-// Start the game 
-let ourChoice = document.querySelectorAll('.all__choices img'); 
-let allChoices = document.querySelector('.all__choices'); 
-let main        = document.querySelector('main')
-let gameZone    = document.querySelector('.start__game')
-
-let firstPlayerPhoto = document.querySelector('.firstPlayer__photo')
+let firstPlayerPhoto = document.querySelector(".firstPlayer__photo");
+let firstPlayerChoice = document.querySelector(".firstPlayer__choice");
 console.log(firstPlayerPhoto);
 
 for (let i = 0; i < ourChoice.length; i++) {
-  ourChoice[i].addEventListener('click', startTheGame)
+  ourChoice[i].addEventListener("click", startTheGame);
 }
 
 function startTheGame(e) {
-  allChoices.classList.add('allChoices__invisible'); 
-  main.classList.add('main__game')
-  gameZone.classList.add('show__theGame')
-  console.log(e.target.src);
-  firstPlayerPhoto.src = e.target.src; 
+  allChoices.classList.add("allChoices__invisible");
+  main.classList.add("main__game");
+  gameZone.classList.add("show__theGame");
+  firstPlayerPhoto.src = e.target.src;
+  firstPlayerChoice.classList.add(e.target.className + "__choice");
+}
+let hasard = Math.floor(Math.random() * ourChoice.length)
+let computerPhoto = document.querySelector('.computerPlayer__photo')
+let computerChoice = document.querySelector('.computerPlayer__choice')
+console.log(computerPhoto);
+console.log(ourChoice[hasard].className);
+
+setTimeout(ComputerTurn, 3000)
+
+
+
+function ComputerTurn() {
+  computerPhoto.src = ourChoice[hasard].src
+  computerChoice.classList.add(ourChoice[hasard].className + '__choice')
 }

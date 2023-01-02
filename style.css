@@ -95,6 +95,10 @@ main {
   flex-direction: column;
 }
 
+.all__choices img{
+  width: 35%;
+  cursor: pointer;
+}
 .paper__scissors {
   display: flex;
   justify-content: space-between;
@@ -113,9 +117,7 @@ main {
   z-index: 2;
 }
 
-.rock__choice {
-  margin: 0 auto;
-}
+
 
 /* .paper__choice,
 .scissors__choice,
@@ -124,12 +126,6 @@ main {
   cursor: pointer;
 } */
 
-.paper__icon,
-.scissors__icon,
-.rock__icon {
-  width: 35%;
-  cursor: pointer;
-}
 
 .allChoices__invisible {
   display: none;
@@ -139,15 +135,20 @@ main {
   background-image: none;
 }
 /* The borders colors around the icons */
-.paper__choice {
+.paper__icon__choice {
   border: 22px solid hsl(230, 89%, 62%);
 }
-.scissors__choice {
+.scissors__icon__choice {
   border: 22px solid hsl(39, 89%, 49%);
 }
 
-.rock__choice {
+.rock__icon__choice {
   border: 22px solid hsl(349, 71%, 52%);
+  
+}
+
+.red__icon {
+  margin: 0 auto;
 }
 
 /* When the user selects a choice for the game */
@@ -193,7 +194,6 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 2;
-  border: 32px solid hsl(349, 71%, 52%);
 }
 
 .mobile__photo {
