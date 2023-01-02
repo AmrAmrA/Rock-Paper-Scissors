@@ -1,10 +1,3 @@
-let paper = document.querySelector(".paper__choice");
-console.log(paper);
-
-paper.addEventListener("click", () => {
-  console.log("Salut");
-});
-
 // Event to open and close the block who show the game rules
 let rulesButton = document.querySelector(".rules__zone");
 let modal = document.querySelector(".modal__block");
@@ -35,3 +28,25 @@ mobileCross.addEventListener('click', () => {
   rulesMobile.classList.remove('mobiles__visible')
    modal.classList.remove("toggle__modal");
 })
+
+
+// Start the game 
+let ourChoice = document.querySelectorAll('.all__choices img'); 
+let allChoices = document.querySelector('.all__choices'); 
+let main        = document.querySelector('main')
+let gameZone    = document.querySelector('.start__game')
+
+let firstPlayerPhoto = document.querySelector('.firstPlayer__photo')
+console.log(firstPlayerPhoto);
+
+for (let i = 0; i < ourChoice.length; i++) {
+  ourChoice[i].addEventListener('click', startTheGame)
+}
+
+function startTheGame(e) {
+  allChoices.classList.add('allChoices__invisible'); 
+  main.classList.add('main__game')
+  gameZone.classList.add('show__theGame')
+  console.log(e.target.src);
+  firstPlayerPhoto.src = e.target.src; 
+}

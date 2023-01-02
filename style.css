@@ -80,7 +80,15 @@ main {
   z-index: -2;
   display: block;
   margin: 0 auto;
+
 }
+
+.main__game {
+  background-image: none;
+  max-width: 800px;
+  width: 90%; 
+}
+
 /* Rock Paper Scissors icons and position */
 .all__choices {
   display: flex;
@@ -109,18 +117,26 @@ main {
   margin: 0 auto;
 }
 
-.paper__choice,
+/* .paper__choice,
 .scissors__choice,
 .rock__choice {
   position: relative;
   cursor: pointer;
-}
+} */
 
 .paper__icon,
 .scissors__icon,
 .rock__icon {
   width: 35%;
   cursor: pointer;
+}
+
+.allChoices__invisible {
+  display: none;
+}
+
+.hide__background {
+  background-image: none;
 }
 /* The borders colors around the icons */
 .paper__choice {
@@ -132,6 +148,61 @@ main {
 
 .rock__choice {
   border: 22px solid hsl(349, 71%, 52%);
+}
+
+/* When the user selects a choice for the game */
+.start__game {
+
+  display: none;
+}
+
+.show__theGame {
+  display: flex;
+  flex-direction: column;
+}
+
+.players__text {
+  margin: 0 95px;
+}
+.players__text {
+  display: flex;
+  justify-content: space-between;
+}
+.player__photos {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 7%;
+}
+
+
+.players__text p {
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 80px;
+}
+
+.mobile__choice {
+  background-color: white;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  border: 32px solid hsl(349, 71%, 52%);
+}
+
+.mobile__photo {
+  width: 35%;
+  cursor: pointer;
+}
+
+.player__photos img {
+  border-radius: 50%;
 }
 
 /* Rules zone */
@@ -202,27 +273,27 @@ main {
 }
 
 .modal__rules {
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 24px;
-    color: hsl(229, 25%, 31%);
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 24px;
+  color: hsl(229, 25%, 31%);
 }
 .mobiles__rules {
   display: none;
 }
 
 .close__explanation {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .toggle__modal {
-    display: block;
+  display: block;
 }
 
-.rulesText__mobile, 
+.rulesText__mobile,
 .crossClose__mobile {
-    display: none;
+  display: none;
 }
 
 footer {
@@ -272,79 +343,77 @@ footer {
   .mobiles__visible {
     display: block;
   }
-    .rules__explanation {
-        display: none;
-    }
-    .modal__block {
-      display: none;
-    }
+  .rules__explanation {
+    display: none;
+  }
+  .modal__block {
+    display: none;
+  }
 
-    .ruleszone__mobile {
-      display: block;
-      display: flex;
-      justify-content: flex-end;
-      margin: 180px 25px 0px 0px;
-      cursor: pointer;
+  .ruleszone__mobile {
+    display: block;
+    display: flex;
+    justify-content: flex-end;
+    margin: 180px 25px 0px 0px;
+    cursor: pointer;
+  }
 
-    }
+  .rules__zone {
+    display: none;
+  }
+  .mobiles__rules {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 850px;
+    z-index: 4;
+    background-color: white;
+    margin-top: 100px;
+  }
+  .rulesborder__mobile {
+    outline: solid 3px rgba(255, 255, 255, 0.616);
+    width: 130px;
+    height: 35px;
+    padding: 7px;
+    border-radius: 7px;
+  }
+  .rulestext__mobile {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    font-weight: 900;
+  }
 
-    .rules__zone {
-      display: none;
-    }
-    .mobiles__rules {
-        position: absolute;
-        top: 300px;
-        left: 50%;
-        right: 0%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 850px; 
-        z-index: 4;
-        background-color: white;
-        margin-top: 100px;
-      }
-      .rulesborder__mobile { 
-        outline: solid 3px rgba(255, 255, 255, 0.616);
-        width: 130px;
-        height: 35px;
-        padding: 7px;
-        border-radius: 7px;
-      }
-      .rulestext__mobile { 
-        color: white;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 2.2px;
-        font-weight: 900;
-      }
-
-      .mobile__title {
-        text-align: center;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        font-weight: 900;
-        font-size: 26px;
-        color: hsl(229, 25%, 31%);
-        margin-bottom: 95px;
-        margin-top: 25px;
-      }
-      .mobile__container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 85px auto;
-      }
-      .mobile__image {
-        width: 80%;
-        display: block;
-        margin: auto;
-        margin-bottom: 95px;
-      }
-      .mobile__cross {
-        width: 25px; 
-        height: 25px;
-        display: block;
-        margin: 45px auto 0px;
-      }
-
-}  
+  .mobile__title {
+    text-align: center;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 26px;
+    color: hsl(229, 25%, 31%);
+    margin-bottom: 95px;
+    margin-top: 25px;
+  }
+  .mobile__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 85px auto;
+  }
+  .mobile__image {
+    width: 80%;
+    display: block;
+    margin: auto;
+    margin-bottom: 95px;
+  }
+  .mobile__cross {
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin: 45px auto 0px;
+  }
+}
