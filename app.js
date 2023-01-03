@@ -36,12 +36,11 @@ let gameZone = document.querySelector(".start__game");
 
 let firstPlayerPhoto = document.querySelector(".firstPlayer__photo");
 let firstPlayerChoice = document.querySelector(".firstPlayer__choice");
-console.log(firstPlayerPhoto);
 
 for (let i = 0; i < ourChoice.length; i++) {
   ourChoice[i].addEventListener("click", startTheGame);
 }
-
+// This allows us to change the design when we click on one of the three choices
 function startTheGame(e) {
   allChoices.classList.add("allChoices__invisible");
   main.classList.add("main__game");
@@ -52,23 +51,25 @@ function startTheGame(e) {
   setTimeout(resultDisplay, 1500);
 }
 
-let hasard = Math.floor(Math.random() * ourChoice.length);
 let computerPhoto = document.querySelector(".computerPlayer__photo");
 let computerChoice = document.querySelector(".computerPlayer__choice");
-
+// This selects a random option for the computer from the available photos
 function ComputerTurn() {
+  let hasard = Math.floor(Math.random() * 3);
   computerPhoto.src = ourChoice[hasard].src;
   computerChoice.classList.add(ourChoice[hasard].className + "__choice");
 }
 
 let resultText = document.querySelector(".result__text");
-
+// This shows the text of the result after the choices of each player
 function resultDisplay() {
   resultText.classList.add("display__result");
+  comparePhotos();
 }
 
 let resetButton = document.querySelector(".result__button");
 
+// When you press the 'play again' button it clears all variables of their values
 resetButton.addEventListener("click", resetGame);
 function resetGame() {
   allChoices.classList.remove("allChoices__invisible");
@@ -77,4 +78,30 @@ function resetGame() {
   resultText.classList.remove("display__result");
   firstPlayerPhoto.src = "";
   computerPhoto.src = "";
+  for (let i = 0; i < ourChoice.length; i++) {
+    firstPlayerChoice.classList.remove(ourChoice[i].className + "__choice");
+    computerChoice.classList.remove(ourChoice[i].className + "__choice");
+  }
+}
+
+// Compare the two photos and display the text of the result according to
+function comparePhotos() {
+  if (firstPlayerPhoto.src === computerPhoto.src) {
+    resultText.children[0].textContent = "Draw";
+  } else if (
+    (firstPlayerChoice.children[0].src ===
+      "http://127.0.0.1:5500/images/icon-paper.svg" &&
+      computerChoice.children[0].src ===
+        "http://127.0.0.1:5500/images/icon-scissors.svg") ||
+    (firstPlayerChoice.children[0].src ===
+      "http://127.0.0.1:5500/images/icon-scissors.svg" &&
+      computerChoice.children[0].src ===
+        "http://127.0.0.1:5500/images/icon-rock.svg") ||
+    (firstPlayerChoice.children[0].src ===
+      "http://127.0.0.1:5500/images/icon-rock.svg" &&
+      computerChoice.children[0].src ===
+        "http://127.0.0.1:5500/images/icon-paper.svg")
+  ) {
+    resultText.children[0].textContent = "You Lose";
+  } else resultText.children[0].textContent = "You Won";
 }
