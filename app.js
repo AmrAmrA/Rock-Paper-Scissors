@@ -90,11 +90,10 @@ function resetGame() {
   }
 }
 
-// Compare the two photos and display the text of the result according to
+// Compare the two photos and display the text of the result according to and increase or decrease the score number
+let scoreNumber = document.querySelector(".number__score");
 function comparePhotos() {
-  if (firstPlayerPhoto.src === computerPhoto.src) {
-    resultText.children[0].textContent = "Draw";
-  } else if (
+  if (
     (firstPlayerChoice.children[0].src.includes("icon-paper.svg") &&
       computerChoice.children[0].src.includes("icon-scissors.svg")) ||
     (firstPlayerChoice.children[0].src.includes("icon-scissors.svg") &&
@@ -103,5 +102,18 @@ function comparePhotos() {
       computerChoice.children[0].src.includes("icon-paper.svg"))
   ) {
     resultText.children[0].textContent = "You Lose";
-  } else resultText.children[0].textContent = "You Won";
+    scoreNumber.textContent == scoreNumber.textContent--;
+  } else if (
+    (firstPlayerChoice.children[0].src.includes("icon-paper.svg") &&
+      computerChoice.children[0].src.includes("icon-rock.svg")) ||
+    (firstPlayerChoice.children[0].src.includes("icon-rock.svg") &&
+      computerChoice.children[0].src.includes("icon-scissors.svg")) ||
+    (firstPlayerChoice.children[0].src.includes("icon-scissors.svg") &&
+      computerChoice.children[0].src.includes("icon-paper.svg"))
+  ) {
+    resultText.children[0].textContent = "You Won";
+    scoreNumber.textContent == scoreNumber.textContent++;
+  } else if (firstPlayerPhoto.src === computerPhoto.src) {
+    resultText.children[0].textContent = "Draw";
+  }
 }
