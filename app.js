@@ -48,16 +48,33 @@ function startTheGame(e) {
   gameZone.classList.add("show__theGame");
   firstPlayerPhoto.src = e.target.src;
   firstPlayerChoice.classList.add(e.target.className + "__choice");
+  setTimeout(ComputerTurn, 1000);
+  setTimeout(resultDisplay, 1500);
 }
 
+let hasard = Math.floor(Math.random() * ourChoice.length);
+let computerPhoto = document.querySelector(".computerPlayer__photo");
+let computerChoice = document.querySelector(".computerPlayer__choice");
 
-
-
-let hasard = Math.floor(Math.random() * ourChoice.length)
-let computerPhoto = document.querySelector('.computerPlayer__photo')
-let computerChoice = document.querySelector('.computerPlayer__choice')
-setTimeout(ComputerTurn, 3000)
 function ComputerTurn() {
-  computerPhoto.src = ourChoice[hasard].src
-  computerChoice.classList.add(ourChoice[hasard].className + '__choice')
+  computerPhoto.src = ourChoice[hasard].src;
+  computerChoice.classList.add(ourChoice[hasard].className + "__choice");
+}
+
+let resultText = document.querySelector(".result__text");
+
+function resultDisplay() {
+  resultText.classList.add("display__result");
+}
+
+let resetButton = document.querySelector(".result__button");
+
+resetButton.addEventListener("click", resetGame);
+function resetGame() {
+  allChoices.classList.remove("allChoices__invisible");
+  main.classList.remove("main__game");
+  gameZone.classList.remove("show__theGame");
+  resultText.classList.remove("display__result");
+  firstPlayerPhoto.src = "";
+  computerPhoto.src = "";
 }

@@ -80,15 +80,12 @@ main {
   z-index: -2;
   display: block;
   margin: 0 auto;
-  background-image: none;
-  max-width: 800px;
-  width: 90%; 
 }
 
 .main__game {
   background-image: none;
   max-width: 800px;
-  width: 90%; 
+  width: 90%;
 }
 
 /* Rock Paper Scissors icons and position */
@@ -97,7 +94,7 @@ main {
   flex-direction: column;
 }
 
-.all__choices img{
+.all__choices img {
   width: 35%;
   cursor: pointer;
 }
@@ -119,15 +116,12 @@ main {
   z-index: 2;
 }
 
-
-
 /* .paper__choice,
 .scissors__choice,
 .rock__choice {
   position: relative;
   cursor: pointer;
 } */
-
 
 .allChoices__invisible {
   display: none;
@@ -146,7 +140,6 @@ main {
 
 .rock__icon__choice {
   border: 22px solid hsl(349, 71%, 52%);
-  
 }
 
 .red__icon {
@@ -155,10 +148,9 @@ main {
 
 /* When the user selects a choice for the game */
 .start__game {
-
   display: none;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .show__theGame {
@@ -174,12 +166,19 @@ main {
   justify-content: space-between;
   margin: 0 2.5%;
 }
+
+.playersText__margin {
+  margin: 0 2.5%;
+}
 .player__photos {
   display: flex;
   justify-content: space-between;
   margin: 0 -2%;
 }
 
+.playerPhotos__margin {
+  margin: 0 7%;
+}
 
 .players__text p {
   color: white;
@@ -215,13 +214,20 @@ main {
   flex-direction: column;
   justify-content: center;
   margin: -20px 30px 0px 30px;
+  display: none;
 }
+
+.display__result {
+  display: flex;
+}
+
+
 
 .final__result {
   margin-bottom: 20px;
   color: white;
   text-transform: uppercase;
-  font-size: 35px;
+  font-size: 45px;
   letter-spacing: 2px;
   text-align: center;
 }
@@ -232,7 +238,7 @@ main {
   text-align: center;
   background-color: white;
   border-radius: 10px;
-  width: 160px;
+  width: 180px;
   text-transform: uppercase;
   letter-spacing: 2.2px;
   cursor: pointer;
@@ -241,9 +247,6 @@ main {
 .result__button:hover {
   color: hsl(349, 71%, 52%);
 }
-
-
-
 
 /* Rules zone */
 .rules__zone {
