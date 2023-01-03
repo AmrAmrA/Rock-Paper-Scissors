@@ -49,6 +49,12 @@ function startTheGame(e) {
   firstPlayerChoice.classList.add(e.target.className + "__choice");
   setTimeout(ComputerTurn, 1000);
   setTimeout(resultDisplay, 1500);
+  console.log(
+    firstPlayerChoice.children[0].src.includes("icon-paper.svg")
+      ? "salut"
+      : "pas salut"
+  );
+  console.log(computerChoice.children[0].src);
 }
 
 let computerPhoto = document.querySelector(".computerPlayer__photo");
@@ -89,18 +95,12 @@ function comparePhotos() {
   if (firstPlayerPhoto.src === computerPhoto.src) {
     resultText.children[0].textContent = "Draw";
   } else if (
-    (firstPlayerChoice.children[0].src ===
-      "http://127.0.0.1:5500/images/icon-paper.svg" &&
-      computerChoice.children[0].src ===
-        "http://127.0.0.1:5500/images/icon-scissors.svg") ||
-    (firstPlayerChoice.children[0].src ===
-      "http://127.0.0.1:5500/images/icon-scissors.svg" &&
-      computerChoice.children[0].src ===
-        "http://127.0.0.1:5500/images/icon-rock.svg") ||
-    (firstPlayerChoice.children[0].src ===
-      "http://127.0.0.1:5500/images/icon-rock.svg" &&
-      computerChoice.children[0].src ===
-        "http://127.0.0.1:5500/images/icon-paper.svg")
+    (firstPlayerChoice.children[0].src.includes("icon-paper.svg") &&
+      computerChoice.children[0].src.includes("icon-scissors.svg")) ||
+    (firstPlayerChoice.children[0].src.includes("icon-scissors.svg") &&
+      computerChoice.children[0].src.includes("icon-rock.svg")) ||
+    (firstPlayerChoice.children[0].src.includes("icon-rock.svg") &&
+      computerChoice.children[0].src.includes("icon-paper.svg"))
   ) {
     resultText.children[0].textContent = "You Lose";
   } else resultText.children[0].textContent = "You Won";
